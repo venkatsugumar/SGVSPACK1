@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_RAR_FARR_BADI_RAI2</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Class for BAdI: FARR_BADI_RAI2</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <LINES>
+    <TLINE>
+     <TDFORMAT>U1</TDFORMAT>
+     <TDLINE>&amp;FUNCTIONALITY&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>The implemented interface methods of this class are processed by default</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>if no customer-specific BAdI implementation is created.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;[SWITCH]S4H_DOCU_ON_PREMISE&amp; = &apos;X&apos;.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>For sales order items, the method FILL_REFERENCE is called to fill the</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE> &lt;DS:DE.FARR_RAI_REFID&gt;Reference ID&lt;/&gt; and</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE> &lt;DS:DE.FARR_RAI_REFTYPE&gt;Reference Type&lt;/&gt; if they are initial. The</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>method runs through the following steps:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSE.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;[SWITCH]S4H_DOCU_CLOUD&amp; = &apos;X&apos;.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>For operational document items, the method FILL_REFERENCE is called to</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>fill the</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE> &lt;DS:DE.FARR_RAI_REFID&gt;Reference ID&lt;/&gt; and</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE> &lt;DS:DE.FARR_RAI_REFTYPE&gt;Reference Type&lt;/&gt; if they are initial. The</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>method runs through the following steps:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>N1</TDFORMAT>
+     <TDLINE>Mapping table FARR_D_MAPPING is checked for whether an entry already</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>exists for the current source document ID.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>N1</TDFORMAT>
+     <TDLINE>If the reference type is filled, the value of that type is used.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>N1</TDFORMAT>
+     <TDLINE>The customer number or the partner number is used to fill the reference.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>N1</TDFORMAT>
+     <TDLINE>Finally, if nothing was found, the first 10 characters of the source</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>document ID are moved to the reference ID.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>U1</TDFORMAT>
+     <TDLINE>&amp;RELATIONS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;[SWITCH]S4H_DOCU_ON_PREMISE&amp; = &apos;X&apos;.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>All revenue accounting items with the same reference type and reference</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>ID are processed together. Furthermore, if you are using the default</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>BAdI implementation of BAdI FARR_BADI_CONTRACT_COMBINATION, all items</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>with the same reference lead to performance obligations in the same</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>contract. Items with different reference types and IDs end up in</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>separate contracts. Please consider this when using another</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>implementation.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSE.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;[SWITCH]S4H_DOCU_CLOUD&amp; = &apos;X&apos;.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>All revenue accounting items with the same reference type and reference</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>ID are processed together. Furthermore, if you are using the default</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>BAdI implementation of BAdI FARR_BADI_CONTRACT_COMBINATION, default</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>combination rules are applied as below:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>All items with the same reference type and reference ID and change</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>reason Upsell (01) or Renewal (03) lead to new q performance obligations</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>with a new contract</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>All items with the same reference type and reference ID and other change</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>reasons (e.g. Cross Sell (02), Down Sell (04)) lead to new performance</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>obligations combined into an existing contract</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>Items with different reference types and IDs end up in separate</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>contracts.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>Please consider this when using another implementation.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+    </TLINE>
+   </LINES>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>MO_RAI_DB_SELECTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Selection of Revenue Accounting Items</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>FILL_REFERENCE</CMPNAME>
+     <SCONAME>CT_MESSAGES</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Table Type of FARR_S_RAI_MSG</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>FILL_REFERENCE</CMPNAME>
+     <SCONAME>CT_RAI2_CO</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Table Type for FARR_S_RAI2_CO_ALL</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>FILL_REFERENCE</CMPNAME>
+     <SCONAME>CT_RAI2_MI</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Table Type for FARR_S_RAI2_MI_ALL</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>FILL_REFERENCE</CMPNAME>
+     <SCONAME>IV_RAIC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Revenue Accounting Item Class</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

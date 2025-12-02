@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Function Group for Application Log</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZRAR_IDOC_APPLOG_ERROR_FGTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZRAR_IDOC_APPLOG_ERROR_FG</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZFI_IDOC_APPLOG_ERROR_COLLECT</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Error Collection for IDOCs using Application Log</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>USE_ARCKEY</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>XFELD</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>USE_IDOC_NUMBER</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>XFELD</TYP>
+      </RSIMP>
+     </IMPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>T_EDIDC</PARAMETER>
+       <DBSTRUCT>EDIDC</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>T_RETURN</PARAMETER>
+       <DBSTRUCT>ZRAR_IDOC_APPLOG</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>CHECK_ARCKEY_OR_IDOC_NUMBER</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>USE_ARCKEY</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Checkbox</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>USE_IDOC_NUMBER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Checkbox</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T_EDIDC</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Control record (IDoc)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T_RETURN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Structure for Function Module ZRAR_IDOC_ERROR_COLLECT</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CHECK_ARCKEY_OR_IDOC_NUMBER</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Check either using ARCKEY OR IDOC_NUMBER</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

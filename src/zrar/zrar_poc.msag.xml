@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZRAR_POC</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZRAR_POC</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>No Such POB ID exist</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZRAR_POC</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>POB ID &amp;&amp; does not exist</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZRAR_POC</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>POB ID &amp;&amp; Fulfillment Type is not Manual or Overtime</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZRAR_POC</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Effective quantity for POB ID &amp;&amp; is blank</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZRAR_POC</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>POB ID &amp;&amp; doesn&apos;t lie between 0 and 100</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>
