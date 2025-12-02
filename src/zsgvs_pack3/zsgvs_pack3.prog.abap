@@ -6,3 +6,5 @@
 REPORT ZSGVS_PACK3.
 
 WRITE : 'PACK3'.
+
+Write : 'GIT TEST 12/02'.
